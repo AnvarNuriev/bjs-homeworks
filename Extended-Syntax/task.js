@@ -98,5 +98,5 @@ function askDrink(name,dateOfBirthday){
     // код для задачи №3 писать здесь
     //console.log(result)
     //return result;
-    ////
+    //
 }
