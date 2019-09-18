@@ -1,5 +1,5 @@
 
-
+    "use strict";
 function calculateQuadraticEquation(){
     let a = +window.a.value;
     let b = +window.b.value;
@@ -11,29 +11,16 @@ function calculateQuadraticEquation(){
 }
 
 function getResult(a,b,c){
-    "use strict";
-    let d, x1, x2, sq;
-    let x = [];
-    d = b * b - 4 * a * c;
-    sq = Math.sqrt(d);
-    //console.log(d);
-    //console.log(sq);
+    let d = b * b - 4 * a * c;
     if (d < 0) {
-        return x;
+        return [];
     }
     else if (d == 0) {
-        x1 = -b / 2 * a;
-        x[0] = x1;
-        //console.log(x);
-        return x;
+        return [-b / 2 * a];
     }
     else {
-        x1 = (-b + sq) / 2 * a;
-        x[0] = x1;
-        x2 = (-b - sq) / 2 * a;
-        x[1] = x2
-        //console.log(x);
-        return x;
+        let sq = Math.sqrt(d);
+        return [(-b + sq) / 2 * a, (-b - sq) / 2 * a];
     }
     
     // код для задачи №1 писать здесь
@@ -53,18 +40,17 @@ function getAverageMark(marks){
     if (marks.length > 5) {
         console.log("Оценок больше 5");
         marksF = marks.slice(0, 5);
-
+        for (let i = 0; i < marksF.length; i++) {
+            sum = sum + marksF[i];
+        }
+            averageMark = sum / marksF.length;
+            return averageMark;
     }
-    //console.log(marksF);
-    //console.log(marksF.length);
 
-    for (let i = 0; i < marksF.length; i++) {
-        //console.log(marksF[b]);
-        sum = sum + marksF[i];
+    for (let i = 0; i < marks.length; i++) {
+        sum = sum + marks[i];
     }
-        //console.log(sum)
-        averageMark = sum / marksF.length;
-        //console.log(averageMark);
+        averageMark = sum / marks.length;
         return averageMark;
     
     // код для задачи №2 писать здесь
@@ -81,22 +67,11 @@ function calculateDrinkTask(){
 function askDrink(name,dateOfBirthday){
 
     let today = new Date();
-    let year = today.getFullYear();
-    let yearofBirthday = dateOfBirthday.getFullYear();
-    let result;
-
-    //console.log(yearofBirthday);
-    //console.log(year);
-    if ((year-yearofBirthday) > 18) {
-        result = "Не желаете ли олд-фэшн, " + name + " ?"
-        return result;
+    if ((today.getFullYear()-dateOfBirthday.getFullYear()) > 18) {
+        return "Не желаете ли олд-фэшн, " + name + " ?";
     }
-        result = "Сожалею, " + name + " но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!";
-        return result;
-
-
+        return "Сожалею, " + name + " но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!";;
     // код для задачи №3 писать здесь
     //console.log(result)
-    //return result;
-    //
+    //return result;//
 }
