@@ -16,11 +16,11 @@ function getResult(a,b,c){
         return [];
     }
     else if (d == 0) {
-        return [-b / 2 * a];
+        return [-b / (2 * a)];
     }
     else {
         let sq = Math.sqrt(d);
-        return [(-b + sq) / 2 * a, (-b - sq) / 2 * a];
+        return [(-b + sq) / (2 * a), (-b - sq) / (2 * a)];
     }
     
     // код для задачи №1 писать здесь
@@ -39,20 +39,14 @@ function getAverageMark(marks){
     let sum = 0;
     if (marks.length > 5) {
         console.log("Оценок больше 5");
-        marksF = marks.slice(0, 5);
-        for (let i = 0; i < marksF.length; i++) {
-            sum = sum + marksF[i];
+    }
+        marks = marks.slice(0, 5);
+        for (let i = 0; i < marks.length; i++) {
+            sum = sum + marks[i];
         }
-            averageMark = sum / marksF.length;
+            averageMark = sum / marks.length;
             return averageMark;
-    }
-
-    for (let i = 0; i < marks.length; i++) {
-        sum = sum + marks[i];
-    }
-        averageMark = sum / marks.length;
-        return averageMark;
-    
+       
     // код для задачи №2 писать здесь
     //return averageMark;
 }
